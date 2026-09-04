@@ -11,139 +11,297 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#0f172a;
-    color:white;
+    background:#08080d;
+    color:#ffffff;
+    min-height:100vh;
 }
 
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    background:#111827;
+    padding:20px 7%;
+    border-bottom:1px solid #2a2038;
+    background:#0c0a12;
 }
 
 .logo{
     font-size:24px;
     font-weight:bold;
-    color:#22c55e;
+    color:#ffffff;
+}
+
+.logo span{
+    color:#a855f7;
 }
 
 nav a{
-    color:white;
+    color:#cfcfcf;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:25px;
+}
+
+nav a:hover{
+    color:#a855f7;
 }
 
 .hero{
     text-align:center;
-    padding:90px 20px;
+    padding:70px 20px 35px;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 18px;
+    border:1px solid #7e22ce;
+    border-radius:30px;
+    color:#c084fc;
+    margin-bottom:20px;
 }
 
 .hero h1{
     font-size:48px;
-    margin-bottom:20px;
-}
-
-.hero span{
-    color:#22c55e;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#ffffff,#c084fc);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-    color:#94a3b8;
-    font-size:18px;
-    max-width:650px;
-    margin:auto;
+    color:#a1a1aa;
+    font-size:17px;
 }
+
+/* Generator */
 
 .generator{
-    max-width:700px;
-    margin:40px auto;
-    background:#1e293b;
+    width:90%;
+    max-width:950px;
+    margin:20px auto 60px;
     padding:30px;
-    border-radius:15px;
+    background:#12101a;
+    border:1px solid #302542;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(168,85,247,0.08);
 }
 
-.generator h2{
-    margin-bottom:20px;
+.tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.tab{
+    flex:1;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:#211a2d;
+    color:white;
+    cursor:pointer;
+}
+
+.tab.active{
+    background:linear-gradient(90deg,#7c3aed,#a855f7);
+}
+
+label{
+    display:block;
+    margin:15px 0 8px;
+    color:#d4d4d8;
 }
 
 textarea{
     width:100%;
     height:130px;
     padding:15px;
-    border-radius:10px;
-    border:none;
+    background:#0a0910;
+    color:white;
+    border:1px solid #393044;
+    border-radius:12px;
     font-size:16px;
-    margin-bottom:15px;
+    resize:none;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#a855f7;
+}
+
+.upload-box{
+    border:2px dashed #5b3a7a;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:15px;
+    background:#0d0b13;
+}
+
+.upload-box input{
+    margin-top:15px;
+    color:#c084fc;
+}
+
+.settings{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
 }
 
 select{
     width:100%;
-    padding:15px;
+    padding:13px;
+    background:#0a0910;
+    color:white;
+    border:1px solid #393044;
     border-radius:10px;
-    margin-bottom:15px;
 }
 
-button{
+.generate-btn{
     width:100%;
-    padding:15px;
+    margin-top:25px;
+    padding:17px;
     border:none;
-    border-radius:10px;
-    background:#22c55e;
+    border-radius:12px;
+    background:linear-gradient(90deg,#7c3aed,#a855f7);
     color:white;
-    font-size:18px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
 }
 
-button:hover{
-    background:#16a34a;
+.generate-btn:hover{
+    opacity:.9;
 }
+
+/* Loading */
+
+.loading{
+    display:none;
+    text-align:center;
+    padding:35px;
+}
+
+.loader{
+    width:45px;
+    height:45px;
+    border:4px solid #302542;
+    border-top:4px solid #a855f7;
+    border-radius:50%;
+    margin:0 auto 15px;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* Result */
+
+.result{
+    display:none;
+    margin-top:30px;
+    padding:25px;
+    text-align:center;
+    background:#0d0b13;
+    border:1px solid #302542;
+    border-radius:15px;
+}
+
+.video-preview{
+    width:100%;
+    height:260px;
+    background:#181421;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#888;
+    margin-bottom:20px;
+}
+
+.download-btn{
+    display:inline-block;
+    padding:13px 30px;
+    border-radius:10px;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+}
+
+/* Features */
 
 .features{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    padding:60px 20px;
-}
-
-.feature{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    width:260px;
+    padding:70px 8%;
     text-align:center;
 }
 
-.feature h3{
-    margin-bottom:10px;
-    color:#22c55e;
+.features h2{
+    margin-bottom:40px;
+    font-size:32px;
 }
 
-.feature p{
-    color:#94a3b8;
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:28px;
+    background:#12101a;
+    border:1px solid #302542;
+    border-radius:16px;
+}
+
+.card .icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-top:10px;
+    color:#a1a1aa;
 }
 
 footer{
     text-align:center;
     padding:25px;
-    background:#111827;
-    color:#94a3b8;
+    border-top:1px solid #25202e;
+    color:#777;
 }
 
-@media(max-width:600px){
-    .hero h1{
-        font-size:32px;
-    }
+@media(max-width:700px){
 
     nav{
         display:none;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .generator{
+        width:94%;
+        padding:20px;
+    }
+
+    .settings{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tabs{
+        flex-direction:column;
     }
 }
 </style>
@@ -152,62 +310,145 @@ footer{
 <body>
 
 <header>
-    <div class="logo">Vijay AI Studio</div>
+    <div class="logo">🎬 Vijay <span>AI Studio</span></div>
 
     <nav>
         <a href="#">Home</a>
-        <a href="#generator">Generate</a>
+        <a href="#generator">Create</a>
         <a href="#features">Features</a>
     </nav>
 </header>
 
 <section class="hero">
 
-    <h1>Create Amazing Videos With <span>AI</span></h1>
+    <div class="badge">✨ AI Powered Video Creation</div>
 
-    <p>
-        Turn your ideas and text into stunning AI generated videos
-        using Vijay AI Studio.
-    </p>
+    <h1>Turn Your Imagination Into Video</h1>
+
+    <p>अपनी कल्पना को Artificial Intelligence की मदद से शानदार वीडियो में बदलें।</p>
 
 </section>
 
 <section class="generator" id="generator">
 
-    <h2>AI Video Generator</h2>
+    <div class="tabs">
+        <button class="tab active" onclick="showText()">✍️ Text to Video</button>
+        <button class="tab" onclick="showImage()">🖼️ Image to Video</button>
+    </div>
 
-    <textarea id="prompt"
-    placeholder="Describe the video you want to create..."></textarea>
+    <div id="textSection">
 
-    <select id="style">
-        <option>Realistic</option>
-        <option>3D Animation</option>
-        <option>Cartoon</option>
-        <option>Cinematic</option>
-        <option>Anime</option>
-    </select>
+        <label>Describe your video / अपना वीडियो बताएं</label>
 
-    <button onclick="generateVideo()">Generate Video</button>
+        <textarea id="prompt"
+        placeholder="Example: A young Indian boy walking through a magical forest, cinematic lighting..."></textarea>
 
-    <p id="result" style="margin-top:20px;text-align:center;"></p>
+    </div>
+
+    <div id="imageSection" style="display:none;">
+
+        <div class="upload-box">
+
+            <h3>Upload Your Image</h3>
+
+            <p style="color:#999;margin-top:10px;">
+                Upload an image to convert it into an AI video.
+            </p>
+
+            <input type="file" id="imageUpload" accept="image/*">
+
+        </div>
+
+    </div>
+
+    <div class="settings">
+
+        <div>
+            <label>Video Style</label>
+            <select id="style">
+                <option>Realistic</option>
+                <option>Cinematic</option>
+                <option>3D Animation</option>
+                <option>Cartoon</option>
+                <option>Anime</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Duration</label>
+            <select id="duration">
+                <option>5 Seconds</option>
+                <option>10 Seconds</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Aspect Ratio</label>
+            <select id="ratio">
+                <option>16:9 YouTube</option>
+                <option>9:16 Reels</option>
+                <option>1:1 Square</option>
+            </select>
+        </div>
+
+    </div>
+
+    <button class="generate-btn" onclick="generateVideo()">
+        🎬 Generate Video
+    </button>
+
+    <div class="loading" id="loading">
+
+        <div class="loader"></div>
+
+        <h3>AI is creating your video...</h3>
+
+        <p style="color:#999;margin-top:10px;">
+            Please wait while Vijay AI Studio processes your request.
+        </p>
+
+    </div>
+
+    <div class="result" id="result">
+
+        <h3>🎉 Your Video is Ready!</h3>
+
+        <div class="video-preview" id="videoPreview">
+            🎬 AI Generated Video Preview
+        </div>
+
+        <a href="#" class="download-btn" onclick="downloadDemo()">
+            ⬇ Download Video
+        </a>
+
+    </div>
 
 </section>
 
 <section class="features" id="features">
 
-    <div class="feature">
-        <h3>Text to Video</h3>
-        <p>Convert your imagination and text prompts into videos.</p>
-    </div>
+    <h2>Powerful AI Features</h2>
 
-    <div class="feature">
-        <h3>AI Powered</h3>
-        <p>Use powerful artificial intelligence to create content.</p>
-    </div>
+    <div class="feature-grid">
 
-    <div class="feature">
-        <h3>Multiple Styles</h3>
-        <p>Create realistic, cinematic, cartoon and animated videos.</p>
+        <div class="card">
+            <div class="icon">✍️</div>
+            <h3>Text to Video</h3>
+            <p>अपने शब्दों और विचारों को AI वीडियो में बदलें।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖼️</div>
+            <h3>Image to Video</h3>
+            <p>अपनी तस्वीरों को जीवंत AI वीडियो में बदलें।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Multiple Styles</h3>
+            <p>Realistic, Cartoon, Anime और Cinematic वीडियो बनाएं।</p>
+        </div>
+
     </div>
 
 </section>
@@ -218,25 +459,65 @@ footer{
 
 <script>
 
-function generateVideo(){
+let currentMode = "text";
 
-let prompt = document.getElementById("prompt").value;
+function showText(){
 
-if(prompt === ""){
-document.getElementById("result").innerHTML =
-"Please enter a video description first.";
-return;
+    currentMode = "text";
+
+    document.getElementById("textSection").style.display = "block";
+    document.getElementById("imageSection").style.display = "none";
+
+    document.querySelectorAll(".tab")[0].classList.add("active");
+    document.querySelectorAll(".tab")[1].classList.remove("active");
 }
 
-document.getElementById("result").innerHTML =
-"🎬 Your AI video request is being processed...";
+function showImage(){
 
-setTimeout(function(){
+    currentMode = "image";
 
-document.getElementById("result").innerHTML =
-"⚠ Demo version: AI video generation API will be connected soon.";
+    document.getElementById("textSection").style.display = "none";
+    document.getElementById("imageSection").style.display = "block";
 
-},2000);
+    document.querySelectorAll(".tab")[1].classList.add("active");
+    document.querySelectorAll(".tab")[0].classList.remove("active");
+}
+
+function generateVideo(){
+
+    if(currentMode === "text"){
+
+        let prompt = document.getElementById("prompt").value.trim();
+
+        if(prompt === ""){
+            alert("Please enter a video description first.");
+            return;
+        }
+
+    } else {
+
+        let image = document.getElementById("imageUpload").files[0];
+
+        if(!image){
+            alert("Please upload an image first.");
+            return;
+        }
+    }
+
+    document.getElementById("result").style.display = "none";
+    document.getElementById("loading").style.display = "block";
+
+    setTimeout(function(){
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("result").style.display = "block";
+
+    }, 3000);
+}
+
+function downloadDemo(){
+
+    alert("Real video download will be available after connecting the AI Video API.");
 
 }
 
